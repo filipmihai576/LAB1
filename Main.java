@@ -1,15 +1,24 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Creăm o listă de studenți
+        List<Student> studenti = new ArrayList<>();
+        studenti.add(new Student("Alex", 8));
+        studenti.add(new Student("Maria", 7));
+        studenti.add(new Student("Ion", 9));
+        studenti.add(new Student("Elena", 6));
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Afisam lista inainte de sortare
+        System.out.println("Lista inainte de sortare: " + studenti);
+
+        // Sortăm lista folosind metoda sort din clasa Collections
+        Collections.sort(studenti);
+
+        // Afisam lista dupa sortare
+        System.out.println("Lista sortată: " + studenti);
     }
 }
