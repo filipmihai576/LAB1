@@ -1,24 +1,30 @@
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        // Creăm o listă de studenți
-        List<Student> studenti = new ArrayList<>();
-        studenti.add(new Student("Alex", 8));
-        studenti.add(new Student("Maria", 7));
-        studenti.add(new Student("Ion", 9));
-        studenti.add(new Student("Elena", 6));
+        Scanner scanner = new Scanner(System.in);
 
-        // Afisam lista inainte de sortare
-        System.out.println("Lista inainte de sortare: " + studenti);
+        try {
+            System.out.println("Introduceți primul număr:");
+            Integer numar1 = Integer.parseInt(scanner.nextLine());
 
-        // Sortăm lista folosind metoda sort din clasa Collections
-        Collections.sort(studenti);
+            System.out.println("Introduceți al doilea număr:");
+            Integer numar2 = Integer.parseInt(scanner.nextLine());
 
-        // Afisam lista dupa sortare
-        System.out.println("Lista sortată: " + studenti);
+            Integer suma = calculeazaSuma(numar1, numar2);
+            System.out.println("Suma celor două numere este: " + suma);
+        } catch (NumberFormatException e) {
+            System.out.println("Eroare: Introduceți un număr valid.");
+        }
+
+        scanner.close();
+    }
+
+    public static Integer calculeazaSuma(Integer numar1, Integer numar2) {
+        if (numar1 == null || numar2 == null) {
+            throw new NullPointerException("Unul dintre numere este null.");
+        }
+        return numar1 + numar2;
     }
 }
