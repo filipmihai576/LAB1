@@ -1,0 +1,85 @@
+@startuml
+interface Shape {
+    {static} String culoare = "nedefinit";
+
+    double getPerimetru();
+}
+
+abstract class Shape2D {
+    abstract double getArie();
+}
+
+abstract class Shape3D {
+    abstract double getVolum();
+}
+
+class SegmentDeDreapta implements Shape {
+    private double lungime;
+    public SegmentDeDreapta(double lungime) {
+        this.lungime = lungime;
+    }
+
+    @Override
+    public double getPerimetru() {
+        return lungime;
+    }
+}
+
+class Patrat extends Shape2D {
+    private double latura;
+
+    public Patrat(double latura) {
+        this.latura = latura;
+    }
+
+    @Override
+    double getArie() {
+        return latura * latura;
+    }
+}
+
+class Cerc extends Shape2D {
+    private double raza;
+
+    public Cerc(double raza) {
+        this.raza = raza;
+    }
+
+    @Override
+    double getArie() {
+        return Math.PI * raza * raza;
+    }
+}
+
+class Sfera extends Shape3D {
+    private double raza;
+
+    public Sfera(double raza) {
+        this.raza = raza;
+    }
+
+    @Override
+    double getVolum() {
+        return (4.0 / 3.0) * Math.PI * Math.pow(raza, 3);
+    }
+}
+
+class Cub extends Shape3D {
+    private double latura;
+
+    public Cub(double latura) {
+        this.latura = latura;
+    }
+
+    @Override
+    double getVolum() {
+        return Math.pow(latura, 3);
+    }
+}
+
+SegmentDeDreapta --|> Shape
+Patrat --|> Shape2D
+Cerc --|> Shape2D
+Sfera --|> Shape3D
+Cub --|> Shape3D
+@enduml
